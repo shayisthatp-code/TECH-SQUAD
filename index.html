@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>University Portal | KTU Inspired</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 20px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6fa;
+            color: #26364b;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .topbar {
+            background: #091d35;
+            color: white;
+            padding: 8px 5%;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        header {
+            background: white;
+            padding: 22px 5%;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #123d70;
+            color: white;
+            display: grid;
+            place-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        header h1 {
+            color: #123d70;
+            font-size: 23px;
+        }
+
+        header p {
+            color: #68778b;
+            font-size: 13px;
+        }
+
+        nav {
+            background: #123d70;
+            display: flex;
+            justify-content: space evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 5px 15px;
+            gap: 10px
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 16px;
+            font-size: 13px;
+            white-space:nowrap;
+        }
+
+        nav a:hover {
+            background: #2466a9;
+        }
+
+        .hero {
+            padding: 75px 8%;
+            color: white;
+            background: linear-gradient(120deg, #091d35, #1766ad);
+        }
+
+        .hero .label {
+            display: inline-block;
+            border: 1px solid #ffffff80;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            margin-bottom: 18px;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            background: white;
+            color: #123d70;
+            padding: 11px 18px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 13px;
+            margin: 5px 5px 5px 0;
+        }
+
+        .button:hover {
+            background: #dcecff;
+        }
+
+        .quicklinks {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            padding: 25px 5%;
+        }
+
+        .quick-card {
+            background: white;
+            padding: 22px;
+            border-radius: 8px;
+            border: 1px solid #e0e6ef;
+            text-align: center;
+        }
+
+        .quick-card .icon {
+            font-size: 30px;
+        }
+
+        .quick-card h3 {
+            color: #123d70;
+            margin: 8px 0;
+            font-size: 17px;
+        }
+
+        .quick-card p {
+            font-size: 12px;
+            color: #68778b;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 10px 25px 35px;
+        }
+
+        section.content {
+            background: white;
+            border: 1px solid #e0e6ef;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow {
+            color: #1766ad;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            color: #123d70;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            margin-bottom: 12px;
+        }
+
+        .notice {
+            padding: 16px;
+            margin: 12px 0;
+            border: 1px solid #e0e6ef;
+            border-left: 4px solid #1766ad;
+            background: #fbfdff;
+            border-radius: 4px;
+        }
+
+        .notice h3 {
+            color: #123d70;
+            font-size: 16px;
+        }
+
+        .notice p {
+            font-size: 13px;
+            color: #68778b;
+            margin: 5px 0 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            padding: 22px;
+            border: 1px solid #e0e6ef;
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        .card h3 {
+            color: #123d70;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #68778b;
+            font-size: 13px;
+        }
+
+        .form-box {
+            max-width: 500px;
+            padding: 22px;
+            background: #f8faff;
+            border: 1px solid #e0e6ef;
+            border-radius: 8px;
+            margin-top: 18px;
+        }
+
+        .form-box label {
+            display: block;
+            margin: 12px 0 5px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .form-box input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-box button {
+            margin-top: 15px;
+            padding: 12px 18px;
+            background: #1766ad;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-box button:hover {
+            background: #123d70;
+        }
+
+        .footer {
+            background: #091d35;
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #c2d0e2;
+            font-size: 12px;
+            margin: 8px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 800px) {
+            .quicklinks {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .topbar {
+                flex-direction: column;
+            }
+
+            header h1 {
+                font-size: 18px;
+            }
+
+            nav {
+                justify-content: flex-start;
+            }
+
+            nav a {
+                padding: 10px;
+            }
+
+            .quicklinks,
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 50px 6%;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            section.content {
+                padding: 20px 15px;
+            }
+
+            .section-title {
+                font-size: 21px;
+            }
+        }
+    .notification-bar {
+    display: flex;
+    align-items: center;
+    background: #1a237e;
+    color: #fff;
+    overflow: hidden;
+}
+
+.notification-title {
+    background: #d32f2f;
+    padding: 10px 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ticker {
+    flex: 1;
+    overflow: hidden;
+}
+
+.ticker-text {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: slide 25s linear infinite;
+}
+
+.ticker-text span {
+    margin-right: 60px;
+}
+
+.ticker:hover .ticker-text {
+    animation-play-state: paused;
+}
+
+@keyframes slide {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-100%); }
+}
+    </style>
+</head>
+
+<body>
+<!-- Sliding Notification Bar -->
+<div class="notification-bar">
+    <span class="notification-title">📢 LATEST UPDATES</span>
+    <div class="ticker">
+        <div class="ticker-text">
+            <span>📝 Visit the Examinations section for exam information</span>
+            <span>🎓 Student services information available here</span>
+        </div>
+    </div>
+</div>
+    <div class="topbar">
+        <span>University Information Portal</span>
+        <span>Academics | Examinations | Student Services</span>
+    </div>
+
+    <header>
+        <div class="logo">U</div>
+
+        <div>
+            <h1>UNIVERSITY PORTAL</h1>
+            <p>Academic Excellence and Innovation</p>
+            <p>Independent Educational Project</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#academics">Academics</a>
+        <a href="#examinations">Examinations</a>
+        <a href="#notifications">Notifications</a>
+        <a href="#colleges">Colleges</a>
+        <a href="#results">Results</a>
+        <a href="#login">Student Login</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <span class="label">UNIVERSITY INFORMATION PORTAL</span>
+
+        <h2>Knowledge. Innovation. Excellence.</h2>
+
+        <p>
+            Explore academic information, examination updates,
+            university announcements, and student services
+            through one convenient educational portal.
+        </p>
+
+        <a href="#notifications" class="button">
+            View Notifications
+        </a>
+
+        <a href="#academics" class="button">
+            Explore Academics
+        </a>
+    </section>
+
+    <div class="quicklinks">
+
+        <a href="#academics">
+            <div class="quick-card">
+                <div class="icon">📚</div>
+                <h3>Academics</h3>
+                <p>Courses and regulations</p>
+            </div>
+        </a>
+
+        <a href="#examinations">
+            <div class="quick-card">
+                <div class="icon">📝</div>
+                <h3>Examinations</h3>
+                <p>Examination information</p>
+            </div>
+        </a>
+
+        <a href="#results">
+            <div class="quick-card">
+                <div class="icon">📊</div>
+                <h3>Results</h3>
+                <p>Sample result information</p>
+            </div>
+        </a>
+
+        <a href="#login">
+            <div class="quick-card">
+                <div class="icon">🎓</div>
+                <h3>Student Portal</h3>
+                <p>Student services demonstration</p>
+            </div>
+        </a>
+
+    </div>
+
+    <main>
+
+        <section class="content" id="about">
+            <p class="eyebrow">ABOUT US</p>
+            <h2 class="section-title">Welcome to the University Portal</h2>
+
+            <p>
+                This website is an independent educational project
+                inspired by university websites such as the APJ Abdul
+                Kalam Technological University website.
+            </p>
+
+            <p>
+                The portal demonstrates how academic information,
+                examination announcements, college details, and
+                student services can be organized in one place.
+            </p>
+
+            <p>
+                This is not the official KTU website and is not
+                affiliated with the university.
+            </p>
+        </section>
+
+        <section class="content" id="notifications">
+            <p class="eyebrow">LATEST UPDATES</p>
+            <h2 class="section-title">Notifications and Announcements</h2>
+
+            <div class="notice">
+                <h3>Academic Calendar Information</h3>
+                <p>
+                    Sample information about academic calendars
+                    and semester schedules.
+                </p>
+            </div>
+
+            <div class="notice">
+                <h3>Examination Announcement</h3>
+                <p>
+                    This section demonstrates how examination
+                    announcements can be displayed.
+                </p>
+            </div>
+
+            <div class="notice">
+                <h3>Student Services Update</h3>
+                <p>
+                    Sample information about student services
+                    and academic support.
+                </p>
+            </div>
+
+            <div class="notice">
+                <h3>Academic Regulations</h3>
+                <p>
+                    Sample information about academic rules
+                    and regulations.
+                </p>
+            </div>
+
+            <p><strong>Note:</strong> These are demonstration notices,
+                not actual university announcements.</p>
+        </section>
+
+        <section class="content" id="academics">
+            <p class="eyebrow">LEARNING AND DEVELOPMENT</p>
+            <h2 class="section-title">Academic Information</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Engineering Courses</h3>
+                    <p>
+                        Explore sample information about engineering
+                        disciplines and courses.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Academic Regulations</h3>
+                    <p>
+                        Learn how academic regulations and
+                        course requirements can be presented.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Academic Calendar</h3>
+                    <p>
+                        View a demonstration of semester
+                        dates and academic activities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content" id="examinations">
+            <p class="eyebrow">EXAMINATION SERVICES</p>
+            <h2 class="section-title">Examination Information</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Exam Timetable</h3>
+                    <p>
+                        Sample information about examination
+                        dates and timetables.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Exam Registration</h3>
+                    <p>
+                        A demonstration of how exam registration
+                        information could be organized.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Exam Guidelines</h3>
+                    <p>
+                        Sample examination instructions
+                        and student guidelines.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content" id="results">
+            <p class="eyebrow">STUDENT ACADEMIC RECORDS</p>
+            <h2 class="section-title">Examination Results</h2>
+
+            <p>
+                This section is a static demonstration of a result
+                lookup form. It does not retrieve real examination
+                results or process submissions.
+            </p>
+
+            <form class="form-box">
+                <label for="register">Registration Number</label>
+
+                <input
+                    type="text"
+                    id="register"
+                    placeholder="Enter a demo registration number"
+                >
+
+                <label for="semester">Semester</label>
+
+                <input
+                    type="text"
+                    id="semester"
+                    placeholder="Enter semester"
+                >
+
+                <button type="button">
+                    Demo Result Lookup
+                </button>
+            </form>
+
+            <p>
+                A working result lookup requires JavaScript,
+                a backend, and an authorized source of results.
+            </p>
+        </section>
+
+        <section class="content" id="colleges">
+            <p class="eyebrow">INSTITUTIONS</p>
+            <h2 class="section-title">College Directory</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Engineering College A</h3>
+                    <p>Sample institution listing.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Engineering College B</h3>
+                    <p>Sample institution listing.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Engineering College C</h3>
+                    <p>Sample institution listing.</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 18px;">
+                The college names above are placeholders, not an
+                official list of affiliated institutions.
+            </p>
+        </section>
+
+        <section class="content" id="login">
+            <p class="eyebrow">STUDENT SERVICES</p>
+            <h2 class="section-title">Student Login Demonstration</h2>
+
+            <p>
+                This is a visual demonstration only. Do not enter
+                real university passwords or personal account details.
+            </p>
+
+            <form class="form-box">
+                <label for="username">Demo Username</label>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter a fictional username"
+                >
+
+                <label for="password">Demo Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter a fictional password"
+                >
+
+                <button type="button">
+                    Demonstration Login
+                </button>
+            </form>
+
+            <p>
+                This form does not authenticate users or send
+                information to a server.
+            </p>
+        </section>
+
+        <section class="content" id="contact">
+            <p class="eyebrow">GET IN TOUCH</p>
+            <h2 class="section-title">Contact Information</h2>
+
+            <p>
+                This independent demonstration website does not
+                represent the official contact information of KTU.
+            </p>
+
+            <p>
+                Project type: Educational Web Development
+            </p>
+
+            <p>
+                Technologies: HTML and embedded CSS
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <h3>University Portal</h3>
+
+        <p>
+            Independent educational project inspired by university websites.
+        </p>
+
+        <p>
+            This website is not the official KTU website.
+        </p>
+
+        <p>© 2026 University Portal Demo</p>
+
+        <a href="#home">Back to Top ↑</a>
+    </footer>
+
+</body>
+</html>
